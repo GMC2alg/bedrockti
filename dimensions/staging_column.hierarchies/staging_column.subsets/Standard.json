@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Standard",
+	"Alias":"Caption_Default",
+	"Expression":"{ HIERARCHIZE( {TM1SUBSETALL( [staging_column] )} ) }"
+}

@@ -1,0 +1,20 @@
+{
+	"@type":"Chore",
+	"Name":"8 BACKUP_SERVER_to_zip-file",
+	"StartTime":"2024-02-21T00:00Z",
+	"DSTSensitive":false,
+	"Active":true,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P1DT00H00M00S",
+	"Tasks":
+	[
+		{
+			"Step":0,
+			"Parameters":[],
+			"Process":
+			{
+				"@id":"Processes('8 BACKUP_SERVER_to_zip-file')"
+			}
+		}
+	]
+}

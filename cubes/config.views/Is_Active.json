@@ -1,0 +1,26 @@
+{
+	"@type":"NativeView",
+	"Name":"Is_Active",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('config_measure')/Hierarchies('config_measure')/Subsets('Default')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('config_item')/Hierarchies('config_item')/Subsets('Is_Active')"
+			}
+		}
+	],
+	"Titles":[],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}

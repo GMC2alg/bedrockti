@@ -1,0 +1,20 @@
+{
+	"@type":"Chore",
+	"Name":"0 --- P R O C E S S   C H A I N S ---------------------------------------------",
+	"StartTime":"2024-02-20T16:13:18Z",
+	"DSTSensitive":false,
+	"Active":false,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P100DT00H00M00S",
+	"Tasks":
+	[
+		{
+			"Step":0,
+			"Parameters":[],
+			"Process":
+			{
+				"@id":"Processes('0 --- P R O C E S S   C H A I N S ---------------------------------------------')"
+			}
+		}
+	]
+}

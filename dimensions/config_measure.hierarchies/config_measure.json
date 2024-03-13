@@ -1,0 +1,22 @@
+{
+	"@type":"Hierarchy",
+	"Name":"config_measure",
+	"Elements":
+	[
+		{
+			"Name":"SETTING",
+			"Type":"String"
+		},
+		{
+			"Name":"ACTIVE",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"config_measure.subsets/Default.json",
+		"config_measure.subsets/level_0.json",
+		"config_measure.subsets/level_0_caption_default.json",
+		"config_measure.subsets/Standard.json"
+	]
+}

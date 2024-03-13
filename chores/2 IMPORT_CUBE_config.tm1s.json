@@ -1,0 +1,20 @@
+{
+	"@type":"Chore",
+	"Name":"2 IMPORT_CUBE_config.tm1s",
+	"StartTime":"2024-02-20T16:21:25Z",
+	"DSTSensitive":false,
+	"Active":false,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P1DT00H00M00S",
+	"Tasks":
+	[
+		{
+			"Step":0,
+			"Parameters":[],
+			"Process":
+			{
+				"@id":"Processes('2 IMPORT_CUBE_config.tm1s')"
+			}
+		}
+	]
+}

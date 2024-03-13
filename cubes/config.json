@@ -1,0 +1,19 @@
+{
+	"@type":"Cube",
+	"Name":"config",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('config_item')"
+		},
+		{
+			"@id":"Dimensions('config_measure')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"config.views/Default.json",
+		"config.views/Is_Active.json",
+		"config.views/Standard.json"
+	]
+}

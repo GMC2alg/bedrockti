@@ -1,0 +1,147 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+#######################################################
+#
+# TI-Process: 8 ZEROOUT_CUBE_by_DIM_specification
+#
+# performs zeroout on given cube;
+# for non- specified dimensions, all leaf elements will be selected
+#
+# @author Meike Heinrich, GMC2/Olapline
+# @version 1.1
+# @since 2019-08-21
+# @TIscope Prolog, Epilog
+# @param ps_Cube AS String
+# @param ps_Dim1 AS String
+# @param ps_MDX1 AS String
+# @param ps_Dim2 AS String
+# @param ps_MDX2 AS String
+# @param ps_Dim3 AS String
+# @param ps_MDX3 AS String
+# @param ps_Dim4 AS String
+# @param ps_MDX4 AS String
+# @param ps_Dim5 AS String
+# @param ps_MDX5 AS String
+# @param ps_Dim6 AS String
+# @param ps_MDX6 AS String
+# @param ps_Dim7 AS String
+# @param ps_MDX7 AS String
+# @param ps_Dim8 AS String
+# @param ps_MDX8 AS String
+# @param ps_Dim9 AS String
+# @param ps_MDX9 AS String
+# @param ps_Dim10 AS String
+# @param ps_MDX10 AS String
+# @variable nothing
+# @return nothing
+# @update 2019-08-21
+# @updatewho Meike Heinrich, GMC2/Olapline
+# @updatewhat Initial setup
+# @updateversion 1.0
+# @update 2023-11-02
+# @updatewho Grischa Rehmer, GMC2/Olapline
+# @updatewhat Adaption to Editpress datamodel
+# @updateversion 1.1
+#
+########################################################
+
+
+
+########################################################
+# PROGRAM CHART
+########################################################
+# 01 PROLOG: SET VARIABLES
+# 02 PROLOG: CHECK PARAMETERS
+# 03 PROLOG: CREATE ZERO OUT VIEW
+# 04 EPILOG: ERROR REPORT
+########################################################
+
+
+
+########################################################
+# 01 SET VARIABLES
+########################################################
+cs_tempObjSuffix = TIMST(NOW, '\Y\m\d_\h\i\s');
+cs_ViewZeroOut = 'SourceView_'|GetProcessName | '_' | cs_tempObjSuffix;
+cs_SubsetZeroOut = 'SourceSubset_'|GetProcessName | '_' | cs_tempObjSuffix;
+
+s_Error = '';
+cs_Concat = CHAR(10);
+########################################################
+
+
+########################################################
+# 02 CHECK PARAMETERS
+########################################################
+If(CubeExists(ps_Cube) = 0);
+   s_Error = s_Error | cs_Concat | 'The cube ' | ps_Cube | ' does not exist.';
+EndIf;
+
+If(s_Error @<> '');
+   ProcessBreak;
+EndIf;
+########################################################
+
+
+########################################################
+# 03 CREATE ZERO OUT VIEW
+########################################################
+ViewCreate(ps_Cube,cs_ViewZeroOut,1);
+n_Count = CubeDimensionCountGet(ps_Cube);
+
+While(n_Count > 0);
+   s_DimCurrent = TABDIM(ps_Cube,n_Count);
+
+   n_CntParameter = 1;
+   n_Flag = 0;
+   While(n_CntParameter <= 10 & n_Flag = 0);
+      s_CntParameter = NumberToString(n_CntParameter);
+      s_DimParameter = Expand('%ps_Dim' | s_CntParameter | '%');
+      s_MDXParameter = Expand('%ps_MDX' | s_CntParameter | '%');
+      If(s_DimParameter @= s_DimCurrent & s_MDXParameter @<> '');
+         s_MDXCurrent = s_MDXParameter;
+         n_Flag = 1; 
+      Else;
+         s_MDXCurrent = '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [ ' | s_DimCurrent | ' ] )}, 0)}';
+      EndIf;
+      n_CntParameter = n_CntParameter+1;
+   End;
+
+   SubsetCreateByMDX(cs_SubsetZeroOut,s_MDXCurrent,1);
+   SubsetMDXSet(s_DimCurrent,cs_SubsetZeroOut,'');
+   ViewSubsetAssign(ps_Cube,cs_ViewZeroOut,s_DimCurrent,cs_SubsetZeroOut);
+   n_Count = n_Count-1;
+End;
+
+ViewZeroOut(ps_Cube,cs_ViewZeroOut);
+########################################################
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+########################################################
+# 04 ERROR REPORT
+########################################################
+If(s_Error @<> '');
+   s_Error = s_Error | cs_Concat | 'Process aborted.';
+   ItemReject(s_Error);
+EndIf;
+########################################################
+#endregion

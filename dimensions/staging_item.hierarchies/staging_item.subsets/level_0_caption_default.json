@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"level_0_caption_default",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SUBSETALL( [staging_item] )}, 0)}"
+}

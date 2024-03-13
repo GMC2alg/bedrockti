@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"2 --- D A T A ----------------------------------------------------------------",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"2 --- D A T A ----------------------------------------------------------------.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

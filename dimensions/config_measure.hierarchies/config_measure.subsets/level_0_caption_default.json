@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"level_0_caption_default",
+	"Alias":"Caption_Default",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SUBSETALL( [config_measure] )}, 0)}"
+}

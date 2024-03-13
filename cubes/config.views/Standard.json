@@ -1,0 +1,26 @@
+{
+	"@type":"NativeView",
+	"Name":"Standard",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('config_measure')/Hierarchies('config_measure')/Subsets('Standard')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('config_item')/Hierarchies('config_item')/Subsets('Standard')"
+			}
+		}
+	],
+	"Titles":[],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.#########"
+}
