@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"level_0_caption_default",
-	"Alias":"Caption_Default",
-	"Expression":"{TM1SUBSETALL( [staging_column] )}"
-}

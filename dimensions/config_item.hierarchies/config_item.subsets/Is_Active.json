@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Is_Active",
-	"Alias":"Caption_Default",
-	"Expression":"{Filter({TM1SUBSETALL( [config_item] )}, [config].([config_item].CurrentMember, [config_measure].[ACTIVE])<>0)}"
-}

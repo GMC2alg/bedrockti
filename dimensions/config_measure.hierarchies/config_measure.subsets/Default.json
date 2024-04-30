@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"Alias":"Caption_Default",
-	"Expression":"{ HIERARCHIZE( {TM1SUBSETALL( [config_measure] )} ) }"
-}
